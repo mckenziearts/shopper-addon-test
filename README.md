@@ -47,7 +47,7 @@ Choisissez un ou plusieurs add-ons parmi les suivants. Chaque add-on a un niveau
 ## Guide d'utilisation
 
 1. Créez un nouveau projet Laravel 13 en local.
-2. Installez Shopper (`shopper/framework`) en suivant la [documentation officielle](https://docs.shopperlabs.com).
+2. Installez Shopper (`shopper/framework`) en suivant la [documentation officielle](https://docs.laravelshopper.dev).
 3. Créez un dépôt Git dédié pour votre add-on : il vit dans son propre dépôt et s'installe par-dessus une installation standard de Shopper. Aucun fork de Shopper n'est accepté.
 4. Développez l'add-on choisi en respectant les exigences techniques ci-dessus. La documentation et le code source de Shopper sont vos seules références : aucune assistance ne sera fournie sur le fonctionnement interne du framework.
 5. Documentez et vérifiez votre travail au fur et à mesure (tests, PHPStan, Pint, Rector).
