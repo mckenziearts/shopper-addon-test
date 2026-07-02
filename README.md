@@ -19,17 +19,15 @@ Réaliser un add-on fonctionnel qui :
 
 ## Choix de l'add-on
 
-Choisissez un ou plusieurs add-ons parmi les suivants. Chaque add-on a un niveau de difficulté ; votre score global est la somme des niveaux des add-ons implémentés.
+Choisissez **un** add-on parmi les suivants. Chaque add-on a un niveau de difficulté, de 1 (le plus simple) à 5 (le plus complexe). Le niveau détermine le nombre de points que rapporte l'add-on : à qualité égale, un add-on plus difficile rapporte plus de points.
 
 | # | Add-on | Ce qui doit exister à la fin | Niveau |
 |---|--------|------------------------------|--------|
-| 1 | **Blog** | Articles et catégories : CRUD complet dans l'admin, statut brouillon/publié, date de publication, association d'une image de couverture. | 4/10 |
-| 2 | **FAQ** | Questions/réponses organisées par groupes : CRUD dans l'admin, réordonnancement des questions, activation/désactivation individuelle. | 3/10 |
-| 3 | **Newsletter** | Gestion des abonnés : inscription et désinscription via API, liste des abonnés dans l'admin avec recherche et filtres, export CSV. | 3/10 |
-| 4 | **Flux produits** | Export du catalogue au format Google Shopping (XML) : mapping des produits, prix et stocks du core, régénération planifiée du flux, page admin de configuration et de prévisualisation. | 5/10 |
-| 5 | **Alertes de retour en stock** | Souscriptions d'alertes sur des produits : notification automatique des clients inscrits quand le stock redevient disponible, vue admin des souscriptions en attente. | 6/10 |
-
-**Total maximum : 21 points.**
+| 1 | **Bannières promotionnelles** | Bannières avec image, lien et période de diffusion : CRUD dans l'admin, activation/désactivation, endpoint API retournant les bannières actives. | 1 |
+| 2 | **Newsletter** | Gestion des abonnés : inscription et désinscription via API, liste des abonnés dans l'admin avec recherche et filtres, export CSV. | 2 |
+| 3 | **Blog** | Articles et catégories : CRUD complet dans l'admin, statut brouillon/publié, date de publication, association d'une image de couverture. | 3 |
+| 4 | **Wishlist** | Listes de souhaits clients : API pour ajouter, retirer et lister les produits, wishlist visible sur la fiche client dans l'admin, vue des produits les plus ajoutés. | 4 |
+| 5 | **Alertes de retour en stock** | Souscriptions d'alertes sur des produits : notification automatique des clients inscrits quand le stock redevient disponible, vue admin des souscriptions en attente. | 5 |
 
 ## Exigences techniques
 
@@ -82,7 +80,9 @@ docs: add installation and override instructions
 2. Si votre dépôt est privé, invitez [@mckenziearts](https://github.com/mckenziearts) en lecture.
 3. Envoyez le lien du dépôt pour vérification.
 
-## Notation (sur 10, par add-on)
+## Notation
+
+La qualité de votre travail est évaluée sur 10 :
 
 | Critère | Points |
 |---------|--------|
@@ -91,3 +91,11 @@ docs: add installation and override instructions
 | Qualité du code (conventions Shopper, PHPStan, Pint, Rector) | 2 |
 | Tests | 2 |
 | Documentation | 1 |
+
+Le score final est pondéré par le niveau de difficulté de l'add-on choisi :
+
+```
+score final = niveau de l'add-on × (note qualité / 10)
+```
+
+Un add-on de niveau 5 parfaitement réalisé vaut 5 points ; un add-on de niveau 1 parfaitement réalisé vaut 1 point. À qualité égale, l'add-on le plus ambitieux l'emporte.
