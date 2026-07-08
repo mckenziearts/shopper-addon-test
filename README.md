@@ -44,11 +44,41 @@ Choisissez **un** add-on parmi les suivants. Chaque add-on a un niveau de diffic
 
 ## Guide d'utilisation
 
+Le test se fait **exclusivement sur la branche `3.x` de Shopper**, à partir d'une **copie locale** du dépôt (la 3.x n'est pas encore publiée sur Packagist).
+
 1. Créez un nouveau projet Laravel 13 en local.
-2. Installez Shopper (`shopper/framework`) en suivant la [documentation officielle](https://docs.laravelshopper.dev).
-3. Créez un dépôt Git dédié pour votre add-on : il vit dans son propre dépôt et s'installe par-dessus une installation standard de Shopper. Aucun fork de Shopper n'est accepté.
-4. Développez l'add-on choisi en respectant les exigences techniques ci-dessus. La documentation et le code source de Shopper sont vos seules références : aucune assistance ne sera fournie sur le fonctionnement interne du framework.
-5. Documentez et vérifiez votre travail au fur et à mesure (tests, PHPStan, Pint, Rector).
+2. Clonez Shopper en local et placez-vous sur la branche `3.x` :
+
+   ```bash
+   git clone https://github.com/shopperlabs/shopper.git
+   cd shopper
+   git checkout 3.x
+   ```
+
+3. Dans le `composer.json` de votre projet Laravel, déclarez votre copie locale comme dépôt de type `path` :
+
+   ```json
+   {
+       "repositories": [
+           {
+               "type": "path",
+               "url": "/chemin/vers/shopper/packages/*"
+           }
+       ]
+   }
+   ```
+
+4. Installez ensuite le package : Composer créera des liens symboliques vers votre copie locale.
+
+   ```bash
+   composer require shopper/framework:"*"
+   ```
+
+   Terminez l'installation (migrations, publication des assets, etc.) en suivant la [documentation officielle](https://docs.laravelshopper.dev).
+
+5. Créez un dépôt Git dédié pour votre add-on : il vit dans son propre dépôt et s'installe par-dessus une installation standard de Shopper. Aucun fork de Shopper n'est accepté.
+6. Développez l'add-on choisi en respectant les exigences techniques ci-dessus. La documentation et le code source de Shopper sont vos seules références : aucune assistance ne sera fournie sur le fonctionnement interne du framework.
+7. Documentez et vérifiez votre travail au fur et à mesure (tests, PHPStan, Pint, Rector).
 
 ## Guide de commit
 
